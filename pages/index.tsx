@@ -1,11 +1,16 @@
 import type { NextPage } from "next";
-import { useSession, signIn, signOut } from "next-auth/react";
+import Head from "next/head";
 import Navbar from "../components/navbar";
 
 const Home: NextPage = () => {
-  const { data: session, status } = useSession();
-
-  return <Navbar />;
+  return (
+    <div>
+      <Head>
+        <title>Diaper Log | Home</title>
+      </Head>
+      <Navbar />
+    </div>
+  );
 };
 
 export default Home;
