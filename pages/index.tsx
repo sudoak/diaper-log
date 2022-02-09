@@ -1,27 +1,11 @@
 import type { NextPage } from "next";
 import { useSession, signIn, signOut } from "next-auth/react";
+import Navbar from "../components/navbar";
 
 const Home: NextPage = () => {
   const { data: session, status } = useSession();
 
-  console.log(session);
-  if (session) {
-    return (
-      <>
-        Signed in as{" "}
-        {session?.user && session?.user.email ? session?.user.email : null}{" "}
-        <br />
-        {status}
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
-    );
-  }
-  return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
-  );
+  return <Navbar />;
 };
 
 export default Home;
